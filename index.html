@@ -26,6 +26,7 @@
 :root[data-theme="dark"]{ --bg:#0A0A0A; --surface:#111111; --fg:#EDEDED; --muted:#8F8F8F; --line:#222222; --accent:#3B8BFF; --ok:#3CC47C; --warn:#E5A43B; color-scheme:dark }
 
 *{box-sizing:border-box}
+[hidden]{display:none!important}
 html{scroll-behavior:smooth}
 body{background:var(--bg); color:var(--fg); font-family:var(--sans); font-size:17px; line-height:1.6; padding-inline:20px; -webkit-font-smoothing:antialiased; letter-spacing:-.01em}
 .wrap{max-width:var(--wrap); margin-inline:auto}
@@ -207,7 +208,6 @@ footer{display:flex; flex-wrap:wrap; gap:12px; justify-content:space-between; pa
     </div>
 
     <figure class="photo rise d4" style="margin:0">
-      <div class="ph" id="photo-ph" hidden><b>MM</b><span class="fr">Ta photo ici</span><span class="en">Your photo here</span></div>
       <img id="photo" src="assets/massyl.jpg" alt="Portrait de Massyl Meddour">
       <span class="photo-tag">Paris · FR / EN</span>
     </figure>
@@ -358,8 +358,8 @@ footer{display:flex; flex-wrap:wrap; gap:12px; justify-content:space-between; pa
   fr.onclick=function(){setLang('fr')}; en.onclick=function(){setLang('en')};
 
   // photo: show assets/massyl.jpg if present, placeholder otherwise
-  var img=document.getElementById('photo'), ph=document.getElementById('photo-ph');
-  img.onload=function(){img.hidden=false; ph.hidden=true};
+  var img=document.getElementById('photo');
+  img.onload=function(){img.hidden=false};
   if(img.complete && img.naturalWidth){img.onload()}
 
   // scroll progress + header border
